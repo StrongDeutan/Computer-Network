@@ -1,1 +1,7 @@
 \\wsl$\Ubuntu\home\deutan
+
+
+
+WSL GitHub
+ssh-agent 실행
+eval "$(ssh-agent -s)"
