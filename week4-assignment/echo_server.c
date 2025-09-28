@@ -47,6 +47,13 @@ int main(int argc, char *argv[])
 			error_handling("accept() error");
 		else
 			printf("Connected client %d \n", i+1);
+
+			struct sockaddr_in *clnt_sockaddr_in = (struct sockaddr_in *)&clnt_adr;
+			int client_port = ntohs(clnt_sockaddr_in->sin_port);
+			char* client_ip = inet_ntoa(clnt_sockaddr_in->sin_addr);
+
+			printf("Client %d's IP : %s\n", i+1, client_ip);
+			printf("Client %d's Port : %d\n", i+1, client_port);
 	
 		while((str_len=read(clnt_sock, message, BUF_SIZE))!=0)
 			write(clnt_sock, message, str_len);
